@@ -16,12 +16,12 @@ def escanear_redes_wifi():
 
 def generar_contrasena(longitud):
     caracteres = string.ascii_letters + string.digits + string.punctuation
-    contrasena = ''.join(random.choice(caracteres) for _ in range(longitud))
-    return contrasena
+    contraseña = ''.join(random.choice(caracteres) for _ in range(longitud))
+    return contraseña
 
-def generar_codigo_qr(nombre_wifi, contrasena):
+def generar_codigo_qr(nombre_wifi, contraseña):
     # Formato para generar el WiFi QR code
-    wifi_config = f"WIFI:T:WPA;S:{nombre_wifi};P:{contrasena};;"
+    wifi_config = f"WIFI:T:WPA;S:{nombre_wifi};P:{contraseña};;"
 
     # Crear el objeto QR Code
     qr = qrcode.QRCode(
@@ -77,18 +77,18 @@ if __name__ == "__main__":
             print("Por favor, ingresa un número válido.")
 
     # Generar una contraseña segura con la longitud especificada
-    contrasena_segura = generar_contrasena(longitud)
-    print("Contraseña segura generada:", contrasena_segura)
+    contraseña_segura = generar_contrasena(longitud)
+    print("Contraseña segura generada:", contraseña_segura)
 
     # Guardar la contraseña en un archivo de texto
     nombre_archivo_txt = "contrasena_wifi.txt"
     with open(nombre_archivo_txt, 'w') as archivo:
-        archivo.write(f"Contraseña de WiFi ({nombre_wifi}): {contrasena_segura}\n")
+        archivo.write(f"Contraseña de WiFi ({nombre_wifi}): {contraseña_segura}\n")
 
     print(f"Contraseña guardada en {nombre_archivo_txt}")
 
     # Generar el código QR
-    qr_image = generar_codigo_qr(nombre_wifi, contrasena_segura)
+    qr_image = generar_codigo_qr(nombre_wifi, contraseña_segura)
 
     # Guardar el código QR como imagen PNG
     nombre_archivo_qr = "codigo_qr_wifi.png"
