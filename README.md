@@ -16,6 +16,8 @@ Este proyecto es un script en Python que permite generar contraseñas seguras pa
 - Python 3.x
 - `qrcode` y `Pillow` para generar el código QR
 - `nmcli` para escanear redes WiFi en Linux
+  
+pip install pyqrcode pip install pillow
 
 ## Instalación
 
